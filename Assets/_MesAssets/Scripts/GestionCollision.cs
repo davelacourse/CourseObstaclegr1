@@ -16,7 +16,9 @@ public class GestionCollision : MonoBehaviour
         //GetComponent<MeshRenderer>().material.color = Color.red;
 
         // Accéder au component et changer le matériel.
-        if (!_touche)
+
+        
+        if (!_touche && collision.gameObject.tag == "Player")
         {
             GetComponent<MeshRenderer>().material = _materielTouche;
             GameManager.Instance.AugmenterCollision();
