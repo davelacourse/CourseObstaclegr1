@@ -3401,7 +3401,7 @@ MonoBehaviour:
   - {fileID: 1650331998}
   - {fileID: 23083076}
   - {fileID: 1743692458}
-  _intensiteForce: 5000
+  _intensiteForce: 2500
 --- !u!65 &1453592885
 BoxCollider:
   m_ObjectHideFlags: 0
