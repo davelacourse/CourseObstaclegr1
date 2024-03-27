@@ -1,9 +1,13 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     //Singleton
     public static GameManager Instance;
+
+    private float _tempsDepart = 0;
+    public float TempsDepart => _tempsDepart;
 
     private void Awake()
     {
@@ -30,22 +34,25 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        Instructions();
         _collision = 0;
-    }
-
-    private void Instructions()
-    {
-        Debug.Log("*** Cours à obstacles");
-        Debug.Log("Le but est d'atteindre la zone finale le plus rapidement possible.");
+        _tempsDepart = Time.time;
     }
 
     // Méthodes publiques
 
+    private void Update()
+    {
+        if (SceneManager.GetActiveScene().buildIndex == SceneManager.sceneCountInBuildSettings - 1
+            || SceneManager.GetActiveScene().buildIndex == 0) ;
+        {
+            Destroy(gameObject);
+        }    
+    }
+
     public void AugmenterCollision()
     {
         _collision++;
-        Debug.Log("Nombre de collisions : " + _collision.ToString());
+        UIGame.Instance.ChangerCollisions();
     }
 
     public void SetNiveau1(int collisionNiveau1, float tempsNiveau1)
