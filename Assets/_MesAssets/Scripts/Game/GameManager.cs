@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         if (SceneManager.GetActiveScene().buildIndex == SceneManager.sceneCountInBuildSettings - 1
-            || SceneManager.GetActiveScene().buildIndex == 0) ;
+            || SceneManager.GetActiveScene().buildIndex == 0) 
         {
             Destroy(gameObject);
         }    
